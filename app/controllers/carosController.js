@@ -24,6 +24,25 @@ app.controller('carosController', function ($scope, $http, $location) {
         }).then(function (res) {
         $scope.data = res.data;
         console.log(res);
+
+        $scope.labels = [];
+        $scope.series = [];
+        $scope.data2=[];
+
+        for (newData of res.data) {
+            $scope.data2.push(newData.costo);    
+            $scope.labels.push(newData.idMarca.descripcion);           
+        }
+          console.log($scope.data2);
+          console.log($scope.labels);
+
+          $scope.type = 'polarArea';
+
+          $scope.toggle = function () {
+            $scope.type = $scope.type === 'polarArea' ?
+              'pie' : 'polarArea';
+          };
+        
         });
     }
 

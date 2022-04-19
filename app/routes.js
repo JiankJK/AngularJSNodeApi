@@ -1,4 +1,4 @@
-var app =  angular.module('main-App',['ngRoute']);
+var app =  angular.module('main-App',['ngRoute','chart.js']);
 
 app.run(function($location) {
 	var userLocal = localStorage.getItem('usuario')

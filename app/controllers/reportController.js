@@ -24,7 +24,24 @@ app.controller('reportController', function ($scope, $http, $location) {
         }).then(function (res) {
         $scope.data = res.data;
         console.log(res);
+        $scope.labels = [];
+        $scope.series = [];
+        $scope.data2=[];
+        
+
+        for (newData of res.data) {
+            $scope.data2.push(newData.total);    
+            $scope.labels.push(newData.descMarca[0].descripcion);           
+        }
+          console.log($scope.data2);
+          console.log($scope.labels);
         });
+       
+
     }
+
+
+
+
 
  });
